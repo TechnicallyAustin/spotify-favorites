@@ -4,7 +4,8 @@ class CreateSongs < ActiveRecord::Migration[5.2]
         #or
         # I can create a constant for my DB connection and iterate through the rows to create objects
         create_table :songs do |t|
-            t.string
+            t.string :title
+            t.string :artist
         end
     end
 

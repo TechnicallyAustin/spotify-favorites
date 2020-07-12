@@ -11,22 +11,8 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  get '/user' do
-    erb :user_home
-  end
-
-
   get '/signup' do
     erb :signup
-  end
-
-
-  get "/all_songs" do 
-  erb :all_songs
-end
-
-  get '/:user/playlist'
-  erb :user_playlist
   end
 
 end

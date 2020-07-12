@@ -1,18 +1,11 @@
 require './config/environment'
 
-class UserController < Sinatra::Base
+class SongController < Sinatra::Base 
 
     configure do
         set :public_folder, 'public'
         set :views, 'app/views'
     end
-
-    get '/:user/home' do
-    end
-
-    get '/:user/:playlist' do
-    end
-
-    get '/'
+    
 
 end

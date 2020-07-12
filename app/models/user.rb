@@ -5,13 +5,11 @@ class User < ActiveRecord::Base
     # users will need to Log in, log out, signup create a playlist, add songs, remove songs, delete all, and search
     #can see all users
     #User can perform CRUD Methods but only on its own objects
-    def initalize(fname, lname, email, password)
-        @fname = fname
-        @lname = lname
-        @email = email
-        @password = password
-    end
+    has_many :playlists
+    has_many :songs, through :playlists
 
+    validates :name,  :email, uniqueness: true 
+    
     def login
         session[:id]
     end
