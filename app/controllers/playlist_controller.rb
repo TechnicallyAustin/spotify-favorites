@@ -1,5 +1,5 @@
 require './config/environment'
-
+# a controller just for playlist actions 
 class PlaylistController < Sinatra::Base 
 
     configure do

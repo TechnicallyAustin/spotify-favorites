@@ -6,10 +6,12 @@ class User < ActiveRecord::Base
     #can see all users
     #User can perform CRUD Methods but only on its own objects
     has_many :playlists
+    #
     has_many :songs, through :playlists
 
     validates :name,  :email, uniqueness: true 
     
+    has_secure_password
     def login
         session[:id]
     end
