@@ -7,12 +7,5 @@ class UserController < Sinatra::Base
         set :views, 'app/views'
     end
 
-    get '/:user/home' do
-    end
-
-    get '/:user/:playlist' do
-    end
-
-    get '/'
 
 end

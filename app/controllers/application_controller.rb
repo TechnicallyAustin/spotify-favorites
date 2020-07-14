@@ -9,10 +9,13 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     erb :welcome
+    #"testing"
   end
 
   get '/signup' do
     erb :signup
   end
+
+
 
 end
