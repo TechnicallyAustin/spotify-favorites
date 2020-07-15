@@ -6,6 +6,15 @@ class SessionController < Sinatra::Base
         set :views, 'app/views'
     end
 
+    get '/login' do 
+    end
+
+    post '/login' do
+    end
+
+    get '/logout' do
+    end
+    
     
     
 end

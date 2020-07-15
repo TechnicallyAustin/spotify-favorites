@@ -7,5 +7,10 @@ class UserController < Sinatra::Base
         set :views, 'app/views'
     end
 
+    post '/signup' do
+        "Create an ERB -- Registration successful, Display this ERB as the post to the signup from"
+        erb :registered
+      end
+
 
 end
