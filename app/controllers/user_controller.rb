@@ -8,8 +8,8 @@ class UserController < Sinatra::Base
     end
 
     post '/signup' do
-        "Create an ERB -- Registration successful, Display this ERB as the post to the signup from"
-        erb :registered
+        "USING THE INFO FROM THE SIGNUP FORM IT WILL CREATE A NEW USER OBJECT AND SAVE IT TO THE DB, 
+        THIS CREATES A USER OBJECT USING THE PARAMS HASH AND AR, RETURNS THE USER "
       end
 
 

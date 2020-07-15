@@ -10,8 +10,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
-    #"testing"
+  "THIS IS THE LANDING PAGE"
   end
 
   helpers do
@@ -19,9 +18,10 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
   end
-  
+
 
     def current_user
+      
     end
 
     def redirect_if_logged_out

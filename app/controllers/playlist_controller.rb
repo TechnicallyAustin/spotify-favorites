@@ -10,26 +10,34 @@ class PlaylistController < Sinatra::Base
     
 
       get '/playlist' do
+        "LISTS ALL PLAYLISTS"
       end
 
       get '/playlist/new' do
+        "CREATES A NEW PLAYLIST"
       end
 
       get '/playlist/:id' do
+        "FINDS A PLAYLIST BY A SPECIFIC ID"
       end
 
       post '/playlist' do
+        "DISPLAYS A PLAYLIST AFTER CREATING IT"
+
       end
 
       get '/playlist/:id/edit' do
+        "DISPLAYS THE EDIT FORM FOR A SPECIFIC PLAYLIST"
       end
 
       patch '/playlist/:id' do
+        "CHANGES THE TITLE, DESCRIPTION OR CONTENTS OF A PLAYLIST" 
       end
 
       delete '/playlist/:id' do
+        "DELETES A SPECIFIC PLAYLIST"
       end
-      
+
 
 
       
