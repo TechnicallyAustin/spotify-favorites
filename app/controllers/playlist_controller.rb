@@ -11,14 +11,17 @@ class PlaylistController < ApplicationController
 
       get '/playlist' do
         "LISTS ALL PLAYLISTS"
+        Playlist.all
       end
 
       get '/playlist/new' do
         "CREATES A NEW PLAYLIST"
+        Playlist.new
       end
 
       get '/playlist/:id' do
         "FINDS A PLAYLIST BY A SPECIFIC ID"
+        Playlist.find_by(:id)
       end
 
       post '/playlist' do
@@ -36,6 +39,7 @@ class PlaylistController < ApplicationController
 
       delete '/playlist/:id' do
         "DELETES A SPECIFIC PLAYLIST"
+        
       end
 
 
