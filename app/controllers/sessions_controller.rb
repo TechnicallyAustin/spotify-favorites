@@ -8,6 +8,7 @@ class SessionController < ApplicationController
 
     get '/login' do 
         "THIS WILL BE THE ROUTE THAT ALLOWS A USER TO LOGIN"
+        erb :"sessions/login"
     end
 
     post '/login' do
