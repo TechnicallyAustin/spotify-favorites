@@ -26,9 +26,10 @@ class ApplicationController < Sinatra::Base
     end
 
     def redirect_if_logged_out
+      
     end
   end
-  
+
 
 
 end

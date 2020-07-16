@@ -7,11 +7,27 @@ class UserController < ApplicationController
         set :views, 'app/views'
     end
 
-    post '/signup' do
-        "USING THE INFO FROM THE SIGNUP FORM IT WILL CREATE A NEW USER OBJECT AND SAVE IT TO THE DB, 
-        THIS CREATES A USER OBJECT USING THE PARAMS HASH AND AR, RETURNS THE USER "
+    get '/signup' do
         erb :'user/signup'
       end
+    
+    post '/signup' do 
+        "SIGN UP SUCCESSFUL, REDIRECT USER TO LOGIN PAGE"
+        user = User.new(params)
+        if user.save 
+            session[:user_id] = user.id
+            redirect '/playlist'
+        end
+    redirect '/signup'
+    end
+
+
+
+    post ':user/home' do 
+        "user home page"
+    end
+
+
 
 
 end
