@@ -12,10 +12,12 @@ class SessionController < ApplicationController
 
     post '/login' do
         "THIS IS THE ERB THAT THE LOGIN PAGE POSTS, SETS THE SESSION USER_ID TO THE CURRENT USER"
+
     end
 
     get '/logout' do
         "CLEARS THE SESSION TO LOG THE USER OUT"
+        session.clear 
     end
 
     

@@ -23,11 +23,5 @@ class UserController < ApplicationController
 
 
 
-    post ':user/home' do 
-        "user home page"
-    end
-
-
-
 
 end
