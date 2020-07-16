@@ -1,5 +1,5 @@
 require './config/environment'
-class SessionController < Sinatra::Base
+class SessionController < ApplicationController
     #controller for user sessions 
     configure do
         set :public_folder, 'public'
