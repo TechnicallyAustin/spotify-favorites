@@ -9,18 +9,19 @@ class PlaylistController < ApplicationController
 
     
 
-      get '/playlist' do
-        "LISTS ALL PLAYLISTS"
+      get '/playlists/:user_id' do
+        "LISTS ALL user PLAYLISTS"
+
         erb :playlists
       end
 
-      get '/playlist/new' do
+      get '/playlist/:user_id/new' do
         "CREATES A NEW PLAYLIST"
         erb :new_playlist
   
       end
 
-      get '/playlist/:id' do
+      get '/playlist/:user_id/find' do
         "FINDS A PLAYLIST BY A SPECIFIC ID"
         Playlist.find_by(:id)
       end
@@ -30,15 +31,15 @@ class PlaylistController < ApplicationController
 
       end
 
-      get '/playlist/:id/edit' do
+      get '/playlist/:user_id/edit' do
         "DISPLAYS THE EDIT FORM FOR A SPECIFIC PLAYLIST"
       end
 
-      patch '/playlist/:id' do
+      patch '/playlist/:user_id/update' do
         "CHANGES THE TITLE, DESCRIPTION OR CONTENTS OF A PLAYLIST" 
       end
 
-      delete '/playlist/:id' do
+      delete '/playlist/:user_id/delete/:playlist_id' do
         "DELETES A SPECIFIC PLAYLIST"
         
       end

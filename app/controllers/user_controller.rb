@@ -15,14 +15,14 @@ class UserController < ApplicationController
         # This needs to save a user to the DB and create a ruby objcet, using AR CRUD methods
         "SIGN UP SUCCESSFUL, REDIRECT USER TO LOGIN PAGE"
         user = User.new(params)
-        if user.save 
-            session[:user_id] = user.id
-            redirect '/playlist'
-        end
-    redirect '/signup'
+        p user.fname
+        #    session[:user_id] = user.id
+         #   redirect '/playlist'
+        #end
+    #redirect '/signup'
     end
 
-    post '/home' do 
+    post ':user/home' do 
         erb :'user/home'
     end
 
