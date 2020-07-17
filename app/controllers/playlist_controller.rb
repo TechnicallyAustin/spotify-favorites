@@ -11,11 +11,12 @@ class PlaylistController < ApplicationController
 
       get '/playlist' do
         "LISTS ALL PLAYLISTS"
-        Playlist.all
+        erb :playlists
       end
 
       get '/playlist/new' do
         "CREATES A NEW PLAYLIST"
+        erb :new_playlist
   
       end
 

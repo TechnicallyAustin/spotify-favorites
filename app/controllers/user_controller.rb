@@ -12,6 +12,7 @@ class UserController < ApplicationController
       end
     
     post '/signup' do 
+        # This needs to save a user to the DB and create a ruby objcet, using AR CRUD methods
         "SIGN UP SUCCESSFUL, REDIRECT USER TO LOGIN PAGE"
         user = User.new(params)
         if user.save 
@@ -26,7 +27,7 @@ class UserController < ApplicationController
     end
 
 
-
+### Need to add dynamic routes to user controller so that each use can be directed to their own home page, based on their user id ###
 
 
 end
