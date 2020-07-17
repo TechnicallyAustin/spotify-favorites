@@ -1,0 +1,13 @@
+@article.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <input type="text" name="title">
+  <input type="text" name="content">
+  <input type="submit" value="submit">
+</form>
+
+
+Many developers are confused about the difference between PATCH and PUT. Imagine a car with a license plate (id). Now let's say we wanted to change the car's color from red to green. We could:
+
+Pull our our disintegrating raygun and zap the car ZZZZAP and build a new car that was identical to the first car in all aspects except that it was green instead of red. We could slap the old license plate (id) on it and, from a certain point of view, we have "updated the Car with given license plate with id equal to params[:id]
+Find a given car and repaint it
+Option 1 is like PUT a replace of all fields. Option 2 is like a PATCH. The subtler question of what differentiates the two hinges on a fancy Latin-esque word: idempotent. If you're really curious about the subtleties here, check out this Stack Overflow question. It may suffice to say that PATCH is relatively new and in the early days of REST we only used PUT (We were zapping all day long !).

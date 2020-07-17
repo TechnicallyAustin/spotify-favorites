@@ -63,6 +63,9 @@ end
 delete '/articles/:id' do 
   # This is a DELETE action
   # deletes on playlist based on the ID in the url
+  @playlist = Playlist.find_by_id(params[:id])
+  @playlist.delete
+  redirect to '/playlist'
 end
 
 
