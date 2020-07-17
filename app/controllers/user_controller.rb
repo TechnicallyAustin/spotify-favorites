@@ -21,6 +21,11 @@ class UserController < ApplicationController
     redirect '/signup'
     end
 
+    post '/home' do 
+        erb :'user/home'
+    end
+
+
 
 
 

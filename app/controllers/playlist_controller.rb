@@ -16,7 +16,7 @@ class PlaylistController < ApplicationController
 
       get '/playlist/new' do
         "CREATES A NEW PLAYLIST"
-        Playlist.new
+  
       end
 
       get '/playlist/:id' do
