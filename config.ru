@@ -1,5 +1,6 @@
 require './config/environment'
 require 'sinatra'
+require 'faker'
 require_relative 'app/controllers/application_controller'
 require_relative 'app/controllers/sessions_controller'
 require_relative 'app/controllers/playlist_controller'

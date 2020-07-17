@@ -8,15 +8,20 @@ class UserController < ApplicationController
     end
 
     get '/signup' do
-        erb :'user/signup'
+        erb :'user/new'
       end
     
     post '/signup' do
-        user = User.create(:fname => params[:fname], :lname => params[:lname], :email => params[:email], :password => params[:password])
-        user.save
-        session[:user_id] = user.id
-        redirect 'user/home'
+        # add logic to stop duplicate users from being made
+        user = User.new(params)
+        if user.save
+            session[:user_id] = user.id
+            redirect 'user/home'
+        end
+        redirect '/singup'
     end
+
+
 
     post '/home' do 
         erb :'user/home'

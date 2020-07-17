@@ -11,11 +11,13 @@ class SessionController < ApplicationController
     end
 
     post '/login' do
+        # needs to validate login information
 
     end
 
     get '/logout' do
         session.clear 
+        # needs to validate that login has occured 
     end
 
     
