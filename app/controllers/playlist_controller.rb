@@ -7,42 +7,65 @@ class PlaylistController < ApplicationController
         set :views, 'app/views'
       end
 
-    
+  get '/playlist' do
+    # This is an INDEX action
+    # index page to display all playlists
+    @playlists = Playlist.all
+    erb :'/playlist/playlist_index'
+  end
 
-      get '/playlists/:user_id' do
-        "LISTS ALL user PLAYLISTS"
+  get '/playlist/new' do
+    erb :'/playlist/new'
+    # this is a NEW action
+    # displays create playlist form
+  end
 
-        erb :playlists
-      end
+  post '/playlist' do 
+    # This is a CREATE action
+    # this actualy creates the playlist using the form from the previous route
+    @playlist = Playlist.create(:title => params[:title], :description => params[:description])
+    redirect to '/playlist/#' # THE SHOW PAGE
+    {@playlist.id}
+  end
 
-      get '/playlist/:user_id/new' do
-        "CREATES A NEW PLAYLIST"
-        erb :new_playlist
+
+  get '/playlist/:id' do
+  # this is a SHOW action
+  # displays one playlist based on ID in the url
+  @playlist = find_by_id(params[:id])
+  erb :'/playlist/show'
   
-      end
+end
 
-      get '/playlist/:user_id/find' do
-        "FINDS A PLAYLIST BY A SPECIFIC ID"
-        Playlist.find_by(:id)
-      end
+get '/playlist/:id/edit' do 
+  # This is an EDIT action
+  # this displays the edit form based on the ID in the url
+  @playlist = Playlist.find_by_id(params[:id])
+  erb :'playlist/edit'
+end
 
-      post '/playlist' do
-        "DISPLAYS A PLAYLIST AFTER CREATING IT"
+patch '/playlist/:id' do
+  # this is an UPDATE action
+  # this modifies an existing playlist based on the ID in the url
+  @playlist = Playlist.find_by_id(params[:id])
+  @playlist.title = params[:title]
+  @playlist.description = params[:description]
+  @playlist.save
+  redirect to '/playlist/:id'ç
+  {@playlist.id}
+end
 
-      end
+put '/playlist/:id' do
+  # this is an UPDATE action
+  # replaces an existing playlist based on the ID in the url
+end
 
-      get '/playlist/:user_id/edit' do
-        "DISPLAYS THE EDIT FORM FOR A SPECIFIC PLAYLIST"
-      end
+delete '/articles/:id' do 
+  # This is a DELETE action
+  # deletes on playlist based on the ID in the url
+end
 
-      patch '/playlist/:user_id/update' do
-        "CHANGES THE TITLE, DESCRIPTION OR CONTENTS OF A PLAYLIST" 
-      end
 
-      delete '/playlist/:user_id/delete/:playlist_id' do
-        "DELETES A SPECIFIC PLAYLIST"
-        
-      end
 
 
 
