@@ -10,7 +10,7 @@ class PlaylistController < ApplicationController
   get '/playlist' do
     # This is an INDEX action
     # index page to display all playlists
-    @playlists = Playlist.all
+    #@playlists = Playlist.all
     erb :'/playlist/index'
   end
 
@@ -50,7 +50,7 @@ patch '/playlist/:id' do
   @playlist.title = params[:title]
   @playlist.description = params[:description]
   @playlist.save
-  redirect to '/playlist/:id{@playlist.id}'
+  redirect to '/playlist/#{@playlist.id}'
 end
 
 put '/playlist/:id' do

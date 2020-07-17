@@ -16,16 +16,18 @@ class UserController < ApplicationController
         user = User.new(params)
         if user.save
             session[:user_id] = user.id
-            redirect 'user/home'
+            redirect '/#{user_id}/home'
         end
         redirect '/singup'
     end
 
 
 
-    post '/home' do 
-        erb :'user/home'
+    post '/:user/home' do 
+        @user = User.find_by_id(params[:id])
+        erb :'/user/home'
     end
+
 
 
 
