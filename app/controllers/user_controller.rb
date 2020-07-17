@@ -11,23 +11,18 @@ class UserController < ApplicationController
         erb :'user/signup'
       end
     
-    post '/signup' do 
-        # This needs to save a user to the DB and create a ruby objcet, using AR CRUD methods
-        "SIGN UP SUCCESSFUL, REDIRECT USER TO LOGIN PAGE"
-        user = User.new(params)
-        p user.fname
-        #    session[:user_id] = user.id
-         #   redirect '/playlist'
-        #end
-    #redirect '/signup'
+    post '/signup' do
+        user = User.create(:fname => params[:fname], :lname => params[:lname], :email => params[:email], :password => params[:password])
+        user.save
+        session[:user_id] = user.id
+        redirect 'user/home'
     end
 
-    post ':user/home' do 
+    post '/home' do 
         erb :'user/home'
     end
 
 
-### Need to add dynamic routes to user controller so that each use can be directed to their own home page, based on their user id ###
-
 
 end
+

@@ -24,8 +24,7 @@ class PlaylistController < ApplicationController
     # This is a CREATE action
     # this actualy creates the playlist using the form from the previous route
     @playlist = Playlist.create(:title => params[:title], :description => params[:description])
-    redirect to '/playlist/#' # THE SHOW PAGE
-    {@playlist.id}
+    redirect to '/playlist/#{@playlist.id}' # The show page
   end
 
 
@@ -51,8 +50,7 @@ patch '/playlist/:id' do
   @playlist.title = params[:title]
   @playlist.description = params[:description]
   @playlist.save
-  redirect to '/playlist/:id'ç
-  {@playlist.id}
+  redirect to '/playlist/:id{@playlist.id}'
 end
 
 put '/playlist/:id' do
