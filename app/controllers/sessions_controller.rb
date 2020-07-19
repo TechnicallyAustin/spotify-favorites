@@ -12,8 +12,8 @@ class SessionController < ApplicationController
 
     post '/login' do
         # needs to validate login information
-        user_exists = User.find_by(:email params[:email], :password params[:password])
-        if user_exists
+        user_exists = User.find_by(email: params[:email])
+        if user_exists && user_exists.authenticate
             session[:user_id] = user_exists.id
             #redirect to the users home page, THe home page might be the playlist home page dynamicaly routed to a user
         else 
