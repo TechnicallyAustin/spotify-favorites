@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "lname"
     t.string "email"
     t.string "password"
+    t.string "password_digest"
   end
 
 end
