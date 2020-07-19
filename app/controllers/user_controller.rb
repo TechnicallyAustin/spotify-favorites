@@ -1,4 +1,5 @@
 require './config/environment'
+require 'pry'
 # controller for the user class routes
 class UserController < ApplicationController
 
@@ -13,15 +14,14 @@ class UserController < ApplicationController
     
     post '/signup' do
         # add logic to stop duplicate users from being made
-        puts params 
-        #find_user = User.find_by(email: params[:email])
-        #if !find_user 
-         #   new_user = User.new(params)
-          #  new_user.save
-           # redirect '/registered'
-        #else
-         #   redirect '/failure'
-        #end
+        find_user = User.find_by(email: params[:email])
+        if !find_user 
+            new_user = User.new(params)
+            new_user.save
+            redirect '/registered'
+        else
+            redirect '/failure'
+        end
     end
 
     get '/registered' do
