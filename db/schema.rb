@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 3) do
   create_table "playlists", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.string "user_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -24,10 +25,8 @@ ActiveRecord::Schema.define(version: 3) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "fname"
-    t.string "lname"
+    t.string "name"
     t.string "email"
-    t.string "password"
     t.string "password_digest"
   end
 
