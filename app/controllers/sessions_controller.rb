@@ -12,6 +12,12 @@ class SessionController < ApplicationController
 
     post '/login' do
         # needs to validate login information
+        user_exists = User.find_by(params)
+        if user_exists
+            session[:user_id] = user_exists.id
+            #redirect to the users home page, THe home page might be the playlist home page dynamicaly routed to a user
+        else 
+            redirect '/signup' 
 
     end
 
