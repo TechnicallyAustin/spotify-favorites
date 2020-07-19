@@ -13,14 +13,15 @@ class UserController < ApplicationController
     
     post '/signup' do
         # add logic to stop duplicate users from being made
-        find_user = User.find_by(params)
-        if !find_user 
-            new_user = User.new(params)
-            new_user.save
-            redirect '/registered'
-        else
-            redirect '/failure'
-        end
+        puts params 
+        #find_user = User.find_by(email: params[:email])
+        #if !find_user 
+         #   new_user = User.new(params)
+          #  new_user.save
+           # redirect '/registered'
+        #else
+         #   redirect '/failure'
+        #end
     end
 
     get '/registered' do
@@ -34,11 +35,6 @@ class UserController < ApplicationController
         erb :'user/failure'
         #redirect '/signup'
     end
-
-
-
-
-
 
     post '/:user/home' do 
         redirect_if_logged_out 
