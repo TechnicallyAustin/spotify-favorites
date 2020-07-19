@@ -13,8 +13,10 @@ class UserController < ApplicationController
     
     post '/signup' do
         # add logic to stop duplicate users from being made
-        user = User.new(:fname => params[:fname], :lname => params[:lname], :email => params[:email], :password => params[:password])
-        if user.save 
+        find_user = User.find_by(params)
+        if !find_user 
+            new_user = User.new(params)
+            new_user.save
             redirect '/registered'
         else
             redirect '/failure'
@@ -22,7 +24,7 @@ class UserController < ApplicationController
     end
 
     get '/registered' do
-        erb :registered
+        erb :'/user/registered'
         #redirect '/login'
     end
 
