@@ -11,7 +11,7 @@ class SessionController < ApplicationController
     end
 
     post '/login' do
-        user_exists = User.find_by(:email => params[:email])
+        user_exists = User.find_by(email: params[:email])
         binding.pry
         if user_exists && user_exists.authenticate(params[:password])
             session[:user_id] = user_exists.id
