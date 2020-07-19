@@ -18,6 +18,7 @@ class SessionController < ApplicationController
             #redirect to the users home page, THe home page might be the playlist home page dynamicaly routed to a user
         else 
             redirect '/signup' 
+        end
 
     end
 
