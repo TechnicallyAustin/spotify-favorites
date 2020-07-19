@@ -13,19 +13,26 @@ class UserController < ApplicationController
     
     post '/signup' do
         # add logic to stop duplicate users from being made
-        user = User.find_by(:email params[:email])
-        if !user 
-            new_user = User.new(params)
-            new_user.save
-            session[:user_id] = new_user.id
-            redirect '/#{user_id}/home'
-        elsif user.save
-            "There is already a user with this email address created"
-            redirect '/signup'
+        user = User.new(params)
+        if user.save
+            redirect '/login'
+        else
+            redirect '/failure'
         end
-        "There is already a user with this email address created"
+    end
+
+    get '/registered' do
+        erb :registered
+        #redirect '/login'
+    end
+
+
+
+    get '/failure' do
+        erb :'user/failure'
         redirect '/signup'
     end
+
 
 
 
