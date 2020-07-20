@@ -25,20 +25,20 @@ class UserController < ApplicationController
 
     get '/registered' do
         erb :'/user/registered'
-        #redirect '/login'
     end
 
 
 
     get '/failure' do
         erb :'user/failure'
-        #redirect '/signup'
+        # put a sign up link in this erb
     end
 
     post '/:user/home' do 
         redirect_if_logged_out 
         @user = User.find_by_id(params[:id])
         erb :'/user/home'
+        #route this dynamically
     end
 
 

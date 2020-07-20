@@ -21,9 +21,13 @@ class PlaylistController < ApplicationController
   end
 
   post '/playlist' do 
+    binding.pry
     # This is a CREATE action
     # this actualy creates the playlist using the form from the previous route
-    @playlist = Playlist.create(:title => params[:title], :description => params[:description])
+    @playlist = Playlist.new(:title => params[:title], :description => params[:description])
+    @playlist.save
+    @song = Song.create(title: params[:title], artist: params[:artist])
+    @song.save
     redirect to '/playlist/#{@playlist.id}' # The show page
   end
 

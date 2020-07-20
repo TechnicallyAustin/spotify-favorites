@@ -24,7 +24,6 @@ class SessionController < ApplicationController
 
     get '/logout' do
         session.clear 
-        # needs to validate that login has occured 
     end
 
     
