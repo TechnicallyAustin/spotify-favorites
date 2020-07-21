@@ -12,10 +12,10 @@ class SessionController < ApplicationController
 
     post '/login' do
         user_exists = User.find_by(email: params[:email])
-        binding.pry
+       # binding.pry
         if user_exists && user_exists.authenticate(params[:password])
             session[:user_id] = user_exists.id
-            redirect '/:user/home'
+            redirect '/playlist'
         else 
             redirect '/failure' 
         end

@@ -10,7 +10,7 @@ class PlaylistController < ApplicationController
   get '/playlist' do
     # This is an INDEX action
     # index page to display all playlists
-    @playlists = current_user.playlist
+    #@playlists = current_user.playlist
     erb :'/playlist/index'
   end
 
