@@ -2,3 +2,9 @@ SHOWS ALL PLAYLISTS
 <ul>
 <li><a href='/playlist/new'>Create a new playlist</a></li>
 <li><a href='/logout'>Logout</a></li>
+
+<%=@playlist.all.each do |list|%>
+</h1><%p list.title%></h1>
+<h2><%p list.description%></h2>
+<%end%>
+

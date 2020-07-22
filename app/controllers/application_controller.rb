@@ -1,5 +1,4 @@
 require './config/environment'
-#controls base funcitons of the application
 class ApplicationController < Sinatra::Base
 
   configure do
