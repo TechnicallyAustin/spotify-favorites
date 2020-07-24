@@ -1,10 +1,18 @@
-SHOWS ALL PLAYLISTS
-<ul>
-<li><a href='/playlist/new'>Create a new playlist</a></li>
-<li><a href='/logout'>Logout</a></li>
+<h1> Hello <%=p "#{current_user.name.capitalize}!"%></h1> 
+<h1>Welcome to Spotify Favorites!</h1>
 
-<%=@playlist.all.each do |list|%>
-</h1><%p list.title%></h1>
-<h2><%p list.description%></h2>
+<ul>
+<li><a href='/playlist/new'> Create a New Playlist </a></li>
+<li> <a href='/logout'>Logout</a></li>
+</ul>
+
+<% counter = 1%>
+<%current_user.playlists.all.collect do |t|%>
+
+<h2><%= p "#{counter}. #{t.title}" %></h2>
+<h4><%= p "#{t.description}"%></h4>
+
+</br>
+<%counter += 1%>
 <%end%>
 

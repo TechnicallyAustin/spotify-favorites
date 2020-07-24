@@ -13,7 +13,6 @@ class UserController < ApplicationController
       end
     
     post '/signup' do
-        # add logic to stop duplicate users from being made
         user = params[:name]
         user = User.new(params)
         if user.save

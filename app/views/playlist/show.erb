@@ -1,4 +1,5 @@
 This will show a specific playlist based on an ID passed in by the params hash
-<h1><%=p @playlist.title%></h1>
-<h2><%=p @playlist.description%></h2>
-<h3><%=p @song.title%></h3>
+<h1><% p "#{current_user.playlist.title}"%></h1>
+<h3><%= p "#{current_user.playlist.description}"%></h3>
+<h4><%= p "#{current_user.playlist.song.title} -- #{current_user.playlist.song.artist}"%></h4>
+
