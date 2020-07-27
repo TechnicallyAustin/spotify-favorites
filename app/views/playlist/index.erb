@@ -5,14 +5,8 @@
 <li><a href='/playlist/new'> Create a New Playlist </a></li>
 <li> <a href='/logout'>Logout</a></li>
 </ul>
-
-<% counter = 1%>
-<%current_user.playlists.all.collect do |t|%>
-
-<h2><%= p "#{counter}. #{t.title}" %></h2>
-<h4><%= p "#{t.description}"%></h4>
-
-</br>
-<%counter += 1%>
+<h2>My Playlists</h2>
+<% @playlist.each do |list|%>
+<p><a href="/playlist/<%=list.id%>"><%= list.id%></a></p>
 <%end%>
 

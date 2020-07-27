@@ -14,15 +14,16 @@
 ActiveRecord::Schema.define(version: 3) do
 
   create_table "playlists", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "user_id"
+    t.string  "title"
+    t.string  "description"
+    t.integer "user_id"
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "title"
-    t.string "artist"
-    t.string "playlist_id"
+    t.string  "title"
+    t.string  "artist"
+    t.integer "playlist_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
