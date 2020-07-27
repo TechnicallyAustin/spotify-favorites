@@ -1,7 +1,16 @@
-This will show a specific playlist based on an ID passed in by the params hash
-<%binding.pry%>
+
+<%#binding.pry%>
 <h1><%= p "#{@playlist.title}"%></h1>
 <h3><%= p "#{@playlist.description}"%></h3>
-<h5><%= p "#{@song.title} -- #{@song.artist}"%></h5>
+<h4>Add the song's title and Artist here </h4>
+
+<a href="/playlist/<%=@playlist.id%>/edit">Edit this playlist</a>
+<a href='/delete'>
+
+
+<a href='/playlist'>Home</a>
+<a href='/logout'>Logout</a>
+
+
 
 

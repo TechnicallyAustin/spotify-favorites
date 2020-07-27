@@ -9,13 +9,18 @@ class SessionController < ApplicationController
         erb :"sessions/login"
     end
 
+    get '/login-failure' do
+        erb :'user/login-failure'
+    end
+
+
     post '/login' do
         user_exists = User.find_by(email: params[:email])
         if user_exists && user_exists.authenticate(params[:password])
             session[:user_id] = user_exists.id
             redirect '/playlist'
         else 
-            redirect '/failure' 
+            redirect '/login-failure' 
         end
 
     end

@@ -1,12 +1,12 @@
 <h1> Hello <%=p "#{current_user.name.capitalize}!"%></h1> 
 <h1>Welcome to Spotify Favorites!</h1>
-
+<h3>Create a new playlist sound or click an existing playlist to View or Edit it</h3>
 <ul>
 <li><a href='/playlist/new'> Create a New Playlist </a></li>
 <li> <a href='/logout'>Logout</a></li>
 </ul>
 <h2>My Playlists</h2>
 <% @playlist.each do |list|%>
-<p><a href="/playlist/<%=list.id%>"><%= list.id%></a></p>
+<p><a href="/playlist/<%=list.id%>"><%= list.title%></a></p>
 <%end%>
 

@@ -23,9 +23,6 @@ class PlaylistController < ApplicationController
     @song = Song.create(:title => params[:name], :artist => params[:artist], :playlist_id => @playlist.id, :user_id => current_user.id)
     @song.save
     binding.pry 
-    #@playlist.song_id = @song.id
-    #current_user.playlist_id = @playlist.id
-    #@song_finder = Song.find_by(:playlist.id => params[:playlist_id])
     redirect to "/playlist/#{@playlist.id}" # The show page
   end
 
@@ -39,7 +36,8 @@ end
 
 get '/playlist/:id/edit' do 
   @playlist = Playlist.find_by_id(params[:id])
-  redirect "/playlist/#{@playlist.id}/edit"
+  erb :'playlist/edit'
+  #redirect "/playlist/#{@playlist.id}/edit"
 
   erb :'playlist/edit'
 end
