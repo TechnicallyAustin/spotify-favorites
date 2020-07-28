@@ -1,3 +1,10 @@
-Create a new form if you can let their values be the paramsa for the current playlist, instead of a patch changing the entire project i will use a puts, this way it keeps the Id the same and allows the user to make modular changes
+<form method="post" action="/posts/<%=@playlist.id%>">
+<input type="hidden" id="hidden" name="_method" value="patch">
 
-
+<label>Title</label>
+<input type ='text' name="title" value='<%=@playlist.id%>'>
+<input type ='text' name="description" value='<%=@playlist.description%>'>
+<input type ='text' name="name" value='<%=@playlist.song.name%>'>
+<input type ='text' name="title" value='<%=@playlist.song.artist%>'> 
+<input type='submit'>
+</form>

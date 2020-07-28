@@ -4,13 +4,9 @@
 <h3><%= p "#{@playlist.description}"%></h3>
 <h4>Add the song's title and Artist here </h4>
 
-<a href="/playlist/<%=@playlist.id%>/edit">Edit this playlist</a>
-<a href='/delete'>
+<a href="/playlist/<%= "#{@playlist.id}%>/edit"><button> Edit this playlist</button></a>
 
 
-<a href='/playlist'>Home</a>
-<a href='/logout'>Logout</a>
+<a href='/playlist'><button>Home</button></a>
 
-
-
-
+<a href='/logout'><button>Logout</button></a>

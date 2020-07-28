@@ -44,10 +44,10 @@ class PlaylistController < ApplicationController
 end
 
 get '/playlist/:id/edit' do 
+  binding.pry
   redirect_if_logged_out
   @playlist = playlist_selector
-  
-    erb :'/playlist/edit'
+  erb :'/playlist/edit'
 
 end
 
