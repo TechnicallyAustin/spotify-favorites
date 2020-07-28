@@ -33,15 +33,6 @@ class UserController < ApplicationController
         # put a sign up link in this erb
     end
 
-    post '/:user/home' do 
-        redirect_if_logged_out 
-        @user = User.find_by_id(params[:id])
-        erb :'/user/home'
-        #route this dynamically
-    end
-
-
-
 
 end
 
