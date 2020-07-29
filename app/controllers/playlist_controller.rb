@@ -35,9 +35,10 @@ class PlaylistController < ApplicationController
 
   post '/playlist' do 
     redirect_if_logged_out
-    @playlist = Playlist.build(:title => params[:title], :description => params[:description], :user_id => current_user.id)
-    @song = Song.build(:title => params[:name], :artist => params[:artist], :playlist_id => @playlist.id, :user_id => current_user.id)
-    binding.pry 
+    binding.pry
+    @playlist = current_user.playlist.create(params[:playlist][:info])
+    @song = @playlist.song.create(params[:playlist][:song])
+    @song.user_id = current_user.id
     redirect to "/playlist/#{@playlist.id}" 
   end
   
@@ -48,7 +49,7 @@ get '/playlist/:id/edit' do
   redirect_if_logged_out
   @playlist = playlist_selector
   erb :'/playlist/edit'
-
+# The application stopped reading this route 
 end
 
 patch '/playlist/:id' do
@@ -65,7 +66,10 @@ delete '/playlist/:id' do
   @playlist = playlist_selector
   if playlist
     @playlist.delete
-  end
+  else
   redirect to "/playlist"
+end
 
 end
+
+

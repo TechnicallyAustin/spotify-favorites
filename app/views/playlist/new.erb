@@ -3,19 +3,21 @@
 <form method='POST' action='/playlist'>
 
 <h3>
-    <label for='title'>Title: </label>
-    <input type='text' name='title'>
+    <label for='title'>Playlist Title: </label>
+    <input type='text' name='playlist[info][title]'>
+    </br>
+    <label for='description'>Description: </label>
+    <input type='text' name='playlist[info][description]'>
 </h3>
 
 <h3>
-    <label for='description'>Description: </label>
-    <input type='text' name='description'>
+    <label for='songs'>Add a Song:</label>
+    <input type ='text' name='playlist[song][name]' value='name'>
+    <input type='text' name = 'playlist[song][artist]' value='artist'>
 </h3>
 
-<h3><label for='songs'>Songs:</label></h3>
 <h4>
-    <input type ='text' name='name' value='name'>
-    <input type ='text' name='artist' value='artist'>
+
 </h4>
 
 </br>

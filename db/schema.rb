@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 3) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string  "title"
+    t.string  "name"
     t.string  "artist"
     t.integer "playlist_id"
     t.integer "user_id"
