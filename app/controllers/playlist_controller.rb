@@ -46,17 +46,17 @@ class PlaylistController < ApplicationController
     #redirect to "/playlist/#{@playlist.id}" 
   end
   
-end
 
-get '/playlist/:id/edit' do 
+
+  get '/playlist/:id/edit' do 
   #binding.pry
   redirect_if_logged_out
   @playlist = playlist_selector
   erb :'/playlist/edit'
-# The application stopped reading this route 
-end
+  # The application stopped reading this route 
+  end
 
-patch '/playlist/:id' do
+  patch '/playlist/:id' do
   binding.pry
   redirect_if_logged_out
   @playlist = playlist_selector
@@ -64,16 +64,19 @@ patch '/playlist/:id' do
   @playlist.description = params[:description]
   @playlist.save
   redirect "/playlist/#{@playlist.id}"
-end
+  end
 
-delete '/playlist/:id' do 
+  delete '/playlist/:id' do 
   redirect_if_logged_out
   @playlist = playlist_selector
-  if playlist
+    if @playlist
     @playlist.delete
-  else
-  redirect to "/playlist"
-end
+    redirect to "/playlist"
+    else
+    redirect to "/playlist"
+    end
+  end
+
 
 end
 

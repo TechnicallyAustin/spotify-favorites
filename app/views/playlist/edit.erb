@@ -1,10 +1,32 @@
+<h1> Edit Your Playlist!</h1>
+
+
 <form method="post" action="/playlist/<%=@playlist.id%>">
 <input type="hidden" id="hidden" name="_method" value="patch">
 
-<label>Title</label>
-<input type ='text' name="title" value='<%=@playlist.id%>'>
+<h3>
+<label>Title: </label>
+<input type ='text' name="title" value='<%=@playlist.title%>'>
+</br>
+<label>Description: </label>
 <input type ='text' name="description" value='<%=@playlist.description%>'>
-<input type ='text' name="name" value='<%=@playlist.song.name%>'>
-<input type ='text' name="title" value='<%=@playlist.song.artist%>'> 
+</h3>
+
+<h3>
+<label>Song Name: </label>
+<input type ='text' name="name" value='<%=@playlist.songs.first.name%>'>
+
+<label>Song Artist: </label>
+<input type ='text' name="title" value='<%=@playlist.songs.first.artist%>'> 
+</h3>
+
 <input type='submit'>
 </form>
+</br>
+</br>
+<form method="POST" action="/playlist/<%= @playlist.id %>">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+</form>
+</br>
+<a href='/playlist'><button>Cancel</button>
