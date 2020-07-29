@@ -8,12 +8,12 @@ class PlaylistController < ApplicationController
       end
 
   def playlist_selector
-    current_user.playlist.find_by_id(params[:id])
+    current_user.playlists.find_by_id(params[:id])
   end
 
   get '/playlist' do
     redirect_if_logged_out 
-    @playlist = current_user.playlist
+    @playlist = current_user.playlists
     erb :'/playlist/index'
   end
 
@@ -25,6 +25,7 @@ class PlaylistController < ApplicationController
 
   get '/playlist/:id' do
     redirect_if_logged_out
+    #binding.pry
     @playlist = playlist_selector
     if @playlist.save
     erb :'/playlist/show'
@@ -35,17 +36,20 @@ class PlaylistController < ApplicationController
 
   post '/playlist' do 
     redirect_if_logged_out
-    binding.pry
-    @playlist = current_user.playlist.create(params[:playlist][:info])
+
+    @playlist = current_user.playlists.create(params[:playlist][:info])
     @song = @playlist.song.create(params[:playlist][:song])
     @song.user_id = current_user.id
-    redirect to "/playlist/#{@playlist.id}" 
+    erb :'/playlist/show'
+    #binding.pry
+    #my 
+    #redirect to "/playlist/#{@playlist.id}" 
   end
   
 end
 
 get '/playlist/:id/edit' do 
-  binding.pry
+  #binding.pry
   redirect_if_logged_out
   @playlist = playlist_selector
   erb :'/playlist/edit'
@@ -53,6 +57,7 @@ get '/playlist/:id/edit' do
 end
 
 patch '/playlist/:id' do
+  binding.pry
   redirect_if_logged_out
   @playlist = playlist_selector
   @playlist.title = params[:title]

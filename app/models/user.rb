@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-    has_many :playlist
-    has_many :song, through: :playlist
+    has_many :playlists
+    has_many :songs, through: :playlists
     validates :name, :email, uniqueness: true 
     has_secure_password
 end

@@ -30,8 +30,11 @@ class UserController < ApplicationController
 
     get '/failure' do
         erb :'user/failure'
-        # put a sign up link in this erb
     end
+
+    def playlist_selector
+        current_user.playlist.find_by_id(params[:id])
+      end
 
 
 end
