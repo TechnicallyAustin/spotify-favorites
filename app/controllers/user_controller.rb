@@ -1,6 +1,6 @@
 require './config/environment'
 require 'pry'
-# controller for the user class routes
+
 class UserController < ApplicationController
 
     configure do
