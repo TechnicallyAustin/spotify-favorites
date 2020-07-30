@@ -39,6 +39,10 @@ class PlaylistController < ApplicationController
     @playlist = current_user.playlists.create(params[:playlist][:info])
     @song = @playlist.songs.create(params[:playlist][:song])
     @song.user_id = current_user.id
+    if @playlist.save && @song.save
+      redirect '/playlists'
+    end
+    redirect '/playlists/new'
     erb :'/playlist/show'
   end
   
