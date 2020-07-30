@@ -25,9 +25,5 @@ class ApplicationController < Sinatra::Base
       redirect "/login" if !logged_in?
     end
   end
-
-  get '/playlist/:id/edit' do
-    "Hello World"
-  end
   
 end

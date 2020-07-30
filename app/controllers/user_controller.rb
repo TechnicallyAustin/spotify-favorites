@@ -26,8 +26,6 @@ class UserController < ApplicationController
         erb :'/user/registered'
     end
 
-
-
     get '/failure' do
         erb :'user/failure'
     end

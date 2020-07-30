@@ -13,7 +13,6 @@ class SessionController < ApplicationController
         erb :'user/login-failure'
     end
 
-
     post '/login' do
         user_exists = User.find_by(email: params[:email])
         if user_exists && user_exists.authenticate(params[:password])
@@ -22,7 +21,6 @@ class SessionController < ApplicationController
         else 
             redirect '/login-failure' 
         end
-
     end
 
     get '/logout' do

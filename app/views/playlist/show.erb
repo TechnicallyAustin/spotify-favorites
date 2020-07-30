@@ -2,14 +2,14 @@
 <h1> Your Playlist! </h1>
 <h1><%= p "#{@playlist.title}"%></h1>
 </br>
-<h3><%= p "#{@playlist[:description]}"%></h3>
+<h3><%= p "#{@playlist.description}"%></h3>
 </br>
 <h4><%= p "#{@playlist.songs.first.name} -- #{@playlist.songs.first.artist }"%> </h4>
 
 
 
-<a href="/playlist/<%=@playlist.id%>/edit"><button>Edit This Playlist</button></a>
+<a href="/playlists/<%=@playlist.id%>/edit"><button>Edit This Playlist</button></a>
 
-<a href='/playlist'><button>Home</button></a>
+<a href='/playlists'><button>Home</button></a>
 
 <a href='/logout'><button>Logout</button></a>
