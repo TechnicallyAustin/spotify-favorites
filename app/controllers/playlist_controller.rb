@@ -53,10 +53,11 @@ class PlaylistController < ApplicationController
   patch '/playlists/:id' do
     redirect_if_logged_out
       @playlist = playlist_selector
+      @song_update = @playlist.songs.first.update(name: params[:playlist][:song][:name], artist: params[:playlist][:song][:artist])
+      @playlist_update = @playlist.update(title: params[:playlist][:info][:title], description: params[:playlist][:info][:description])
       if @playlist
-          if @playlist.update(title: params[:playlist][:info][:title], description: params[:playlist][:info][:description]) || @playlist.songs.first.update(name: params[:playlist][:song][:name], artist: params[:playlist[:song][:artist]])
-            binding.pry
-            redirect "/playlists/#{@playlist.id}"
+        if @playlist_update && @song_update
+        redirect "/playlists/#{@playlist.id}"
           end
           redirect "/playlists/#{@playlist.id}/edit"
       end

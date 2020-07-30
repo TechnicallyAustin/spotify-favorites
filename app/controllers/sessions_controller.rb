@@ -17,7 +17,7 @@ class SessionController < ApplicationController
         user_exists = User.find_by(email: params[:email])
         if user_exists && user_exists.authenticate(params[:password])
             session[:user_id] = user_exists.id
-            redirect '/playlist'
+            redirect '/playlists'
         else 
             redirect '/login-failure' 
         end
@@ -25,6 +25,7 @@ class SessionController < ApplicationController
 
     get '/logout' do
         session.clear 
+        erb :'/sessions/logout'
     end
 
     
