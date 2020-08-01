@@ -38,8 +38,8 @@ class PlaylistController < ApplicationController
     redirect_if_logged_out
     @playlist = current_user.playlists.create(params[:playlist][:info])
     @song = @playlist.songs.create(params[:playlist][:song])
-    @song.user_id = current_user.id
-    if @playlist.save && @song.save
+    @song.user_id = current_user.id 
+    if @playlist.save && @song.save #use .valid? here in ruby docs
       redirect '/playlists'
     end
     redirect '/playlists/new'

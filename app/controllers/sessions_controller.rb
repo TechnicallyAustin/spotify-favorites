@@ -17,7 +17,7 @@ class SessionController < ApplicationController
         user_exists = User.find_by(email: params[:email])
         if user_exists && user_exists.authenticate(params[:password])
             session[:user_id] = user_exists.id
-            redirect '/playlists'
+            redirect "/playlists"
         else 
             redirect '/login-failure' 
         end
